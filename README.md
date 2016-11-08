@@ -2,7 +2,9 @@
 
 ##Developer's info
 >__소프트웨어공학__
+
 >>_20121884 차영훈_ cyh0123q
+
 >>_20121865 임종식_ jongsiklim
 
 Airbnb를 개발하는 ChachaLim 팀 입니다.
