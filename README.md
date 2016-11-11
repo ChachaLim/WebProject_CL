@@ -29,9 +29,5 @@ Airbnb는 전세계의 숙박업소의 정보를 디테일하게 담고있어 �
 ####blaze
 ![blaze](http://blazejs.org/logo/logo.png)
 
-####angular
+####angular2
 ![Angular2](http://www.whiteoctoberevents.co.uk/perch/resources/angular.svg)
-
-
-chachaTest2
-LimTest1
