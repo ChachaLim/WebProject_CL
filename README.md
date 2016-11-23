@@ -10,7 +10,7 @@
 Airbnb를 개발하는 ChachaLim 팀 입니다.
 Airbnb는 전세계의 숙박업소의 정보를 디테일하게 담고있어 사용자들이 편리하게 숙박업소에 대한정보를 받을 수 있습니다.
 
-![Alt text](https://www.google.co.kr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjNs4yGx77QAhWHspQKHSRsCYoQjRwIBw&url=https%3A%2F%2Fwww.airbnb.com%2F&psig=AFQjCNHbDqByFZmzjZDmdaSrPYDKQHm40g&ust=1479979399314352)
+![Alt text](https://a2.muscache.com/airbnb/static/logos/belo-1200x630-a0d52af6aba9463c82017da13912f19f.png)
 
 
 ##Plan
