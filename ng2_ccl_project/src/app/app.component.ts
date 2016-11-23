@@ -6,5 +6,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '차차림프로젝트 ng2-cli version';
+
+title = "airbnb";
+selectedHome = {};
+ homes = [
+ 	{
+	 	hoster:'차영훈',
+		price:'250$',
+		place:'Busan'
+	},
+	{
+		hoster:'임종식',
+		price:'299$',
+		place:'부산'
+	},
+	{
+		hoster:'Chris',
+		price:'300$',
+		place:'NY'
+	},
+	{
+		hoster:'elice',
+		price:'500$',
+		place:'paris'
+	}
+
+ ];
+
+ onSelect(home){
+ 	this.selectedHome = home;
+ }
+ constructor(){}
+
 }
