@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 title = "airbnb";
-selectedHome = {};
- homes = [
+
+ houses = [
  	{
 	 	hoster:'차영훈',
 		price:'250$',
@@ -33,9 +33,6 @@ selectedHome = {};
 
  ];
 
- onSelect(home){
- 	this.selectedHome = home;
- }
  constructor(){}
 
 }
