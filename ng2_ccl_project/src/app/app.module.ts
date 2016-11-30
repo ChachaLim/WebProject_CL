@@ -1,17 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { DetailsComponent } from './details/details.component';
-import {Routes, RouterModule} from "@angular/router";
+import {AppComponent} from './app.component';
+import {HomeComponent} from './home/home.component';
+import {DetailsComponent} from './details/details.component';
+import {HouseService} from "./house.service";
+import {AppRoutingModule} from "./app-routing.module";
 
-const appRoutes: Routes = [
-  {path:  '', component:HomeComponent},
-  {path: 'details', component:DetailsComponent}
-  ];
 
 @NgModule({
   declarations: [
@@ -22,11 +18,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    RouterModule.forRoot(appRoutes),
-
+    // RouterModule.forRoot(appRoutes),
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [HouseService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
