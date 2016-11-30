@@ -1,46 +1,32 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HouseService} from "../house.service";
+import {House} from "../House";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [HouseService]
 })
 export class HomeComponent implements OnInit {
   homeTitle = "homePage";
+  houses: House[];
 
-  houses = [
-    {
-      hoster:'차영훈',
-      price:'250$',
-      place:'Busan'
-    },
-    {
-      hoster:'임종식',
-      price:'299$',
-      place:'부산'
-    },
-    {
-      hoster:'Chris',
-      price:'300$',
-      place:'NY'
-    },
-    {
-      hoster:'elice',
-      price:'500$',
-      place:'paris'
-    }
+  constructor(private houseService: HouseService) {}
 
-  ];
+  getHouses(): void {
+    this.houses = this.houseService.getHouses();
+  }
 
-  // @Input() houses;
-
+  ngOnInit(): void {
+    this.getHouses();
+  }
 
   selectedHouse = {};
-  onSelect(house){
+
+  onSelect(house) {
     this.selectedHouse = house;
   }
-  constructor() { }
 
-  ngOnInit() {  }
 
 }
