@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {House} from "../House";
+import {HouseService} from "../house.service";
+import {ActivatedRoute, Params} from "@angular/router";
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-details',
@@ -8,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
 
   title:"details"
-  constructor() { }
 
-  ngOnInit() {
+  house: House;
+
+  constructor(
+    private houseService: HouseService,
+    private route: ActivatedRoute,
+  ) { }
+
+  ngOnInit():void {
+    this.route.params
+      .switchMap((params:Params)=>this.houseService.getHouse(params['hoster']))
+      .subscribe(house => this.house = house);
   }
 
 }

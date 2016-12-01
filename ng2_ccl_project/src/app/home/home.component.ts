@@ -9,22 +9,14 @@ import {House} from "../House";
 })
 export class HomeComponent implements OnInit {
   homeTitle = "homePage";
-  houses: House[];
+  houses: House[] = [];
 
-  constructor(private houseService: HouseService) {}
-
-  getHouses(): void {
-    this.houses = this.houseService.getHouses();
-  }
+  constructor(
+    private houseService: HouseService,
+  ) {}
 
   ngOnInit(): void {
-    this.getHouses();
-  }
-
-  selectedHouse = {};
-
-  onSelect(house) {
-    this.selectedHouse = house;
+    this.houseService.getHouses().then(houses => this.houses = houses);
   }
 
 

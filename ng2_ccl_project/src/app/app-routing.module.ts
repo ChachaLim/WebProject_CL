@@ -6,7 +6,7 @@ import {DetailsComponent} from "./details/details.component";
 
 const appRoutes: Routes = [
   {path: '',        component: HomeComponent},
-  {path: 'details', component: DetailsComponent}
+  {path: 'details/:hoster', component: DetailsComponent}
 ];
 
 @NgModule({

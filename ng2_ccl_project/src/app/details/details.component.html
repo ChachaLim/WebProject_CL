@@ -1,3 +1,13 @@
-<p>
-  details works!
-</p>
+<div *ngIf="house">
+  <h2>{{house.hoster}}의 집 details!</h2>
+
+  <div>
+  <p>위치 : {{house.place}}</p>
+  <p>가격 : {{house.price}}</p>
+  </div>
+
+  <p>{{house.hoster}}의 집 정보 수정</p>
+  <!-- two way data binding -->
+  <label>가격 </label><input type="text" [(ngModel)]="house.price"><br>
+  <label>위치 </label><input type="text" [(ngModel)]="house.place">
+</div>

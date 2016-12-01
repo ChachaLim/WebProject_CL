@@ -18,7 +18,6 @@ import {AppRoutingModule} from "./app-routing.module";
   imports: [
     BrowserModule,
     FormsModule,
-    // RouterModule.forRoot(appRoutes),
     AppRoutingModule
   ],
   providers: [HouseService],

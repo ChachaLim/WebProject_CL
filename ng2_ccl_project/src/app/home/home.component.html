@@ -2,17 +2,10 @@
 
 <ul>
   <li *ngFor="let house of houses"
-      (click)="onSelect(house)"
-      [class.clicked]="selectedHouse===house">
+      [routerLink]="['/details', house.hoster]">
     {{house.hoster}}의 집
+    /장소 : {{house.place}}
+    /가격 : {{house.price}}
   </li>
 </ul>
-<div>
-  <p>위치 : {{selectedHouse.place}}</p>
-  <p>가격 : {{selectedHouse.price}}</p>
-</div>
 
-<p>{{selectedHouse.hoster}}의 집 정보 수정</p>
-<!-- two way data binding -->
-<label>가격 </label><input type="text" [(ngModel)]="selectedHouse.price"><br>
-<label>위치 </label><input type="text" [(ngModel)]="selectedHouse.place">
