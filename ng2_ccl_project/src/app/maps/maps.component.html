@@ -1,0 +1,14 @@
+<h2>{{title}}</h2>
+
+<!--latitude = 위도-->
+<!--longitude = 경도-->
+<!--zoom = default값:8, 값이 클수록 확대-->
+
+<!--marker-->
+<!--title = mouse over 시 표시-->
+<!--label = 마커 위에 표시됨-->
+<!--markerClick = 마커 클릭 이벤트-->
+
+<sebm-google-map [latitude]="LatLng[0].lat" [longitude]="LatLng[0].lng" [zoom]="10">
+  <sebm-google-map-marker *ngFor="let mark of LatLng" [latitude]="mark.lat" [longitude]="mark.lng" [title]="mark.name" (markerClick)="mc(mark.name)"></sebm-google-map-marker>
+</sebm-google-map>

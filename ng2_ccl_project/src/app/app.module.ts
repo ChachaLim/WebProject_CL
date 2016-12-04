@@ -7,18 +7,24 @@ import {HomeComponent} from './home/home.component';
 import {DetailsComponent} from './details/details.component';
 import {HouseService} from "./house.service";
 import {AppRoutingModule} from "./app-routing.module";
+import { MapsComponent } from './maps/maps.component';
+import {AgmCoreModule} from "angular2-google-maps/core";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyBlgTXLMGrg5cUsLJQGqsu0ffrGP83Psjg'
+    })
   ],
   providers: [HouseService],
   bootstrap: [AppComponent]
