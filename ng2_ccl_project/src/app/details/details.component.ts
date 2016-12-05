@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
+import {Location} from '@angular/common';
+
 import {House} from "../House";
 import {HouseService} from "../house.service";
-import {ActivatedRoute, Params} from "@angular/router";
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -18,12 +20,16 @@ export class DetailsComponent implements OnInit {
   constructor(
     private houseService: HouseService,
     private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit():void {
     this.route.params
       .switchMap((params:Params)=>this.houseService.getHouse(params['hoster']))
       .subscribe(house => this.house = house);
+  }
+  goBack():void{
+    this.location.back();
   }
 
 }

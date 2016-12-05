@@ -9,5 +9,8 @@
   <p>{{house.hoster}}의 집 정보 수정</p>
   <!-- two way data binding -->
   <label>가격 </label><input type="text" [(ngModel)]="house.price"><br>
-  <label>위치 </label><input type="text" [(ngModel)]="house.place">
+  <label>위치 </label><input type="text" [(ngModel)]="house.place"><br>
+  <label>위도 </label><input type="text" [(ngModel)]="house.lat"><br>
+  <label>경도 </label><input type="text" [(ngModel)]="house.lng">
+  <button (click)="goBack()">뒤로</button>
 </div>
