@@ -1,18 +1,8 @@
-<h2>{{title}}</h2>
-
-<ul>
-    <li *ngFor="let home of homes"
-         (click)="onSelect(home)"
-         [class.clicked]="selectedHome===home">
-         {{home.hoster}}의 집
-    </li>
-</ul>		
-<div>
-	위치 : {{selectedHome.place}}<br>
-	가격 : {{selectedHome.price}}
-</div>
-
-<p>{{selectedHome.hoster}}의 집 정보 수정</p>
-<!-- two way data binding -->
-<label>가격 </label><input type="text" [(ngModel)]="selectedHome.price"><br>
-<label>위치 </label><input type="text" [(ngModel)]="selectedHome.place">
+<h1>{{title}}</h1>
+<nav>
+  <!--<a routerLink="/" routerLinkActive="active">홈</a>-->
+  <p (click)="onClick()">홈</p>
+</nav>
+<app-maps></app-maps>
+<app-filter></app-filter>
+<router-outlet></router-outlet>

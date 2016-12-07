@@ -9,6 +9,7 @@ import {HouseService} from "./house.service";
 import {AppRoutingModule} from "./app-routing.module";
 import { MapsComponent } from './maps/maps.component';
 import {AgmCoreModule} from "angular2-google-maps/core";
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {AgmCoreModule} from "angular2-google-maps/core";
     AppComponent,
     HomeComponent,
     DetailsComponent,
-    MapsComponent
+    MapsComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
