@@ -10,6 +10,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import { MapsComponent } from './maps/maps.component';
 import {AgmCoreModule} from "angular2-google-maps/core";
 import { FilterComponent } from './filter/filter.component';
+import { HostComponent } from './host/host.component';
+import { GuestComponent } from './guest/guest.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { FilterComponent } from './filter/filter.component';
     HomeComponent,
     DetailsComponent,
     MapsComponent,
-    FilterComponent
+    FilterComponent,
+    HostComponent,
+    GuestComponent
   ],
   imports: [
     BrowserModule,
