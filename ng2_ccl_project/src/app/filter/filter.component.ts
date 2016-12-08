@@ -7,9 +7,11 @@ import {House} from '../House';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  Title : String = "filtering";
   houses: House[] = [];
-  constructor(private houseService : HouseService) {
-   }
+  constructor(
+    private houseService : HouseService,
+  ){}
 
   ngOnInit() {
     //houseservice라는 객체를 생성하는거고 그 객체의 함수 getHouses()에서 .then()은또뭐야

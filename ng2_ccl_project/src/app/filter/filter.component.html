@@ -1,1 +1,9 @@
+<h1>{{title}}</h1>
 검색 <input type="text">
+<table>
+  <tr *ngFor="let house of houses">
+    <td class="hoster">{{house.hoster}}</td>
+    <td>{{house.place}}</td>
+    <td>{{house.price}}</td>
+  </tr>
+</table>
