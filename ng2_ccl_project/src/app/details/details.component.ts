@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class DetailsComponent implements OnInit {
 
-  title:"details"
+  title:"details";
 
   house: House;
 

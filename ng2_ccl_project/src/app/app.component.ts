@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {HouseService} from "./house.service";
 import {Router} from "@angular/router";
 
 @Component({
