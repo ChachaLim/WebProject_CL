@@ -1,7 +1,26 @@
 <h1>{{title}}</h1>
-검색 <input type="text">
-<table>
-  <tr *ngFor="let house of houses">
+
+
+<form id="filter">
+  <label>
+    Filter Homes by
+    <select class="" name="">
+      <option value="hoster">
+        hoster
+      </option>
+      <option value="place">
+        place
+      </option>
+      <option value="price">
+        price
+      </option>
+    </select>
+    <label>: </label>
+  </label>
+  <input name="filterInput" type="text" [(ngModel)]="term">
+</form>
+<table border="4">
+  <tr *ngFor="let house of houses | filter:term ">
     <td class="hoster">{{house.hoster}}</td>
     <td>{{house.place}}</td>
     <td>{{house.price}}</td>

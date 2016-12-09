@@ -12,7 +12,9 @@ import {AgmCoreModule} from "angular2-google-maps/core";
 import { FilterComponent } from './filter/filter.component';
 import { HostComponent } from './host/host.component';
 import { GuestComponent } from './guest/guest.component';
-
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,18 +24,22 @@ import { GuestComponent } from './guest/guest.component';
     MapsComponent,
     FilterComponent,
     HostComponent,
-    GuestComponent
+    GuestComponent,
+    FilterPipe
   ],
   imports: [
+
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBlgTXLMGrg5cUsLJQGqsu0ffrGP83Psjg'
-    })
+    }),
+    MaterialModule.forRoot()
   ],
   providers: [HouseService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {
 }
