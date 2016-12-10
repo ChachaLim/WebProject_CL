@@ -4,15 +4,12 @@
 <form id="filter">
   <label>
     Filter Homes by
-    <select class="" name="">
+    <select [(ngModel)]="opt" name="filterOpt">
       <option value="hoster">
         hoster
       </option>
       <option value="place">
         place
-      </option>
-      <option value="price">
-        price
       </option>
     </select>
     <label>: </label>
@@ -20,7 +17,7 @@
   <input name="filterInput" type="text" [(ngModel)]="term">
 </form>
 <table border="4">
-  <tr *ngFor="let house of houses | filter:term ">
+  <tr *ngFor="let house of houses | filter:term:opt ">
     <td class="hoster">{{house.hoster}}</td>
     <td>{{house.place}}</td>
     <td>{{house.price}}</td>
