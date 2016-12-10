@@ -1,10 +1,8 @@
 <h1>{{title}}</h1>
-
-<button [routerLink]="['/host']">호스트</button>
-<button [routerLink]="['/guest']">게스트</button>
-
 <nav>
   <!--<a routerLink="/" routerLinkActive="active">홈</a>-->
-  <p (click)="onClick()">홈</p>
+  <button (click)="onClick()">홈페이지</button>
+  <button [routerLink]="['/host']">호스트</button>
+  <button [routerLink]="['/guest']">게스트</button>
 </nav>
 <router-outlet></router-outlet>

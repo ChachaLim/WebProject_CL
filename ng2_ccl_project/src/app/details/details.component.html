@@ -1,16 +1,29 @@
+<!--<div *ngIf="house |async">-->
+  <!--<h2>{{house.hoster}}의 집 details!</h2>-->
+
+  <!--<div>-->
+  <!--<p>위치 : {{house.place}}</p>-->
+  <!--<p>가격 : {{house.price}}</p>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;<p>{{house.hoster}}의 집 정보 수정</p>&ndash;&gt;-->
+  <!--&lt;!&ndash;&lt;!&ndash; two way data binding &ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;<label>가격 </label><input type="text" [(ngModel)]="house.price"><br>&ndash;&gt;-->
+  <!--&lt;!&ndash;<label>위치 </label><input type="text" [(ngModel)]="house.place"><br>&ndash;&gt;-->
+  <!--&lt;!&ndash;<label>위도 </label><input type="text" [(ngModel)]="house.lat"><br>&ndash;&gt;-->
+  <!--&lt;!&ndash;<label>경도 </label><input type="text" [(ngModel)]="house.lng">&ndash;&gt;-->
+  <!--<button (click)="goBack()">뒤로</button>-->
+<!--</div>-->
+<!--<div *ngFor="let a of house">-->
+  <!--<p>{{a.$value}}</p>-->
+<!--</div>-->
+
 <div *ngIf="house">
   <h2>{{house.hoster}}의 집 details!</h2>
-
-  <div>
   <p>위치 : {{house.place}}</p>
   <p>가격 : {{house.price}}</p>
-  </div>
-
-  <p>{{house.hoster}}의 집 정보 수정</p>
-  <!-- two way data binding -->
-  <label>가격 </label><input type="text" [(ngModel)]="house.price"><br>
-  <label>위치 </label><input type="text" [(ngModel)]="house.place"><br>
-  <label>위도 </label><input type="text" [(ngModel)]="house.lat"><br>
-  <label>경도 </label><input type="text" [(ngModel)]="house.lng">
+  <p>
+    위도/경도 : {{house.lat}}/{{house.lng}}
+  </p>
   <button (click)="goBack()">뒤로</button>
 </div>

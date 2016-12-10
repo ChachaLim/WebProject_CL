@@ -11,7 +11,7 @@ import { FilterPipe } from '../filter.pipe';
 export class FilterComponent implements OnInit {
   Title : String = "filtering";
   houses: House[] = [];
-  housesfilter : House[] = [];
+  housesfilter2 : House[] = [];
   inputHouseName: String;
   constructor(
     private houseService : HouseService,
@@ -19,7 +19,7 @@ export class FilterComponent implements OnInit {
 
   onkey(event:any){
     console.log("test");
-    this.houseService.getFilterHouse(event.target.value).then(housesfilter => this.housesfilter = housesfilter);
+    this.houseService.getFilterHouse(event.target.value).then(housesfilter => this.housesfilter2 = housesfilter);
 
   }
   ngOnInit() {

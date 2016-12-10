@@ -15,10 +15,9 @@ import { GuestComponent } from './guest/guest.component';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { FilterPipe } from './filter.pipe';
-import {DataService} from "./data.service";
-import {AfApp} from "./af.component";
 import {AngularFireModule} from "angularfire2";
 import { ListComponent } from './list/list.component';
+import { HosterComponent } from './hoster/hoster.component';
 
 //firebase init
 export const firebaseConfig = {
@@ -39,8 +38,8 @@ export const firebaseConfig = {
     HostComponent,
     GuestComponent,
     FilterPipe,
-    AfApp,
-    ListComponent
+    ListComponent,
+    HosterComponent
   ],
   imports: [
     BrowserModule,
