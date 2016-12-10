@@ -5,7 +5,7 @@
   <label>
     Filter Homes by
     <select [(ngModel)]="opt" name="filterOpt">
-      <option value="hoster">
+      <option value="hoster" selected>
         hoster
       </option>
       <option value="place">
@@ -18,7 +18,7 @@
 </form>
 <table border="4">
   <tr *ngFor="let house of houses | filter:term:opt ">
-    <td class="hoster">{{house.hoster}}</td>
+    <td>{{house.hoster}}</td>
     <td>{{house.place}}</td>
     <td>{{house.price}}</td>
   </tr>
