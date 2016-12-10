@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HouseService} from "../house.service";
 import {House} from "../House";
 import {Router} from "@angular/router";
-import {DataService} from "../data.service";
 import {FirebaseListObservable, AngularFire} from "angularfire2";
 
 

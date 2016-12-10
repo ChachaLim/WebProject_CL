@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HouseService} from "../house.service";
 import {House} from "../House";
-import {DataService} from "../data.service";
+
 
 
 @Component({
