@@ -1,51 +1,45 @@
 import {Component, OnInit} from '@angular/core';
+import {HouseService} from "../house.service";
+import {House} from "../House";
+import {Router} from "@angular/router";
+import {DataService} from "../data.service";
+import {FirebaseListObservable, AngularFire} from "angularfire2";
+
 
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.css']
+  styleUrls: ['./maps.component.css'],
 })
 export class MapsComponent implements OnInit {
 
   title: string = 'google maps';
+  houses: House[] = [];
+  // houses: FirebaseListObservable<any[]>;
+  items: FirebaseListObservable<any[]>;
 
-  LatLng: any[] = [
-    {
-      //서울
-      name:"서울",
-      lat: 37.575970,
-      lng: 126.957694
-    },
-    {
-      name:"부산 현대 무지개 아파트",
-      lat: 35.145319,
-      lng: 129.005662
-    },
-    {
-      name:"부산 럭키 주례아파트",
-      lat: 35.148165,
-      lng: 129.003375
-    },
-    {
-      name:"뉴욕 매트로테크 센터",
-      lat: 40.692577,
-      lng: 73.984618
-    },
-    {
-      name:"파리 카우텀 카페",
-      lat: 48.851596,
-      lng: 2.318030
-    }
-  ]
+  default_lat: number = 37.575970;
+  default_lng: number = 126.957694;
 
-  //마커 클릭 이벤트
-  mc(place):void{
-    alert(place);
-  }
-  constructor() {
-  }
+  constructor(
+    private houseService: HouseService,
+    // private ds: DataService,
+    private router : Router,
+    private af: AngularFire
+  ) {
+  this.items = af.database.list('/');
+}
 
-  ngOnInit() {
-  }
+
+ngOnInit(): void {
+this.houseService.getHouses().then(houses => this.houses = houses);
+// this.houses = this.ds.getHouses();
+}
+
+//마커 클릭 이벤트
+mc(house:House): void {
+this.router.navigate(['/details', house.hoster]);
+}
+
 
 }

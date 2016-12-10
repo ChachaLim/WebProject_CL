@@ -9,6 +9,12 @@
 <!--label = 마커 위에 표시됨-->
 <!--markerClick = 마커 클릭 이벤트-->
 
-<sebm-google-map [latitude]="LatLng[0].lat" [longitude]="LatLng[0].lng" [zoom]="10">
-  <sebm-google-map-marker *ngFor="let mark of LatLng" [latitude]="mark.lat" [longitude]="mark.lng" [title]="mark.name" (markerClick)="mc(mark.name)"></sebm-google-map-marker>
+<sebm-google-map [latitude]="default_lat" [longitude]="default_lng" [zoom]="8">
+  <sebm-google-map-marker *ngFor="let mark of items | async"
+                          [latitude]="mark.lat"
+                          [longitude]="mark.lng"
+                          [title]="mark.name"
+                          (markerClick)="mc(mark)"
+
+  ></sebm-google-map-marker>
 </sebm-google-map>

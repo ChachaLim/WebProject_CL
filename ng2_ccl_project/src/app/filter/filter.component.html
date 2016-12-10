@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+
+
+<form id="filter">
+  <label>
+    Filter Homes by
+    <select [(ngModel)]="opt" name="filterOpt">
+      <option value="hoster" selected>
+        hoster
+      </option>
+      <option value="place">
+        place
+      </option>
+    </select>
+    <label>: </label>
+  </label>
+  <input name="filterInput" type="text" [(ngModel)]="term">
+</form>
+<table border="4">
+  <tr *ngFor="let house of houses | filter:term:opt ">
+    <td>{{house.hoster}}</td>
+    <td>{{house.place}}</td>
+    <td>{{house.price}}</td>
+  </tr>
+</table>
