@@ -9,6 +9,13 @@ import {HomeComponent} from './home/home.component';
 import {DetailsComponent} from './details/details.component';
 import {HouseService} from "./house.service";
 import { MapsComponent } from './maps/maps.component';
+import {AgmCoreModule} from "angular2-google-maps/core";
+import { FilterComponent } from './filter/filter.component';
+import { HostComponent } from './host/host.component';
+import { GuestComponent } from './guest/guest.component';
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
+import { FilterPipe } from './filter.pipe';
 import {DataService} from "./data.service";
 import {AfApp} from "./af.component";
 import {AngularFireModule} from "angularfire2";
@@ -28,6 +35,10 @@ export const firebaseConfig = {
     HomeComponent,
     DetailsComponent,
     MapsComponent,
+    FilterComponent,
+    HostComponent,
+    GuestComponent,
+    FilterPipe,
     AfApp
   ],
   imports: [
@@ -39,9 +50,9 @@ export const firebaseConfig = {
       apiKey:'AIzaSyBlgTXLMGrg5cUsLJQGqsu0ffrGP83Psjg'
     }),
     AngularFireModule.initializeApp(firebaseConfig)//firebase 연동
+    MaterialModule.forRoot()
   ],
   providers: [HouseService],
-  // providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
