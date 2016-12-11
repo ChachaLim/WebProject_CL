@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule, routing, appRoutingProviders} from "./app-routing.module";
 import {HttpModule} from "@angular/http";
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -18,10 +18,11 @@ import { FilterPipe } from './filter.pipe';
 import {AfApp} from "./af.component";
 import {AngularFireModule} from "angularfire2";
 import { ListComponent } from './list/list.component';
-import { LoginComponent } from './login/login.component';
+
 //auth0
 import { AUTH_PROVIDERS }      from 'angular2-jwt';
-
+import { AutoLoginComponent } from './auto-login/auto-login.component';
+import { Auth } from './auth.service';
 
 //firebase init
 export const firebaseConfig = {
@@ -44,13 +45,15 @@ export const firebaseConfig = {
     FilterPipe,
     AfApp,
     ListComponent,
-    LoginComponent,
+    AutoLoginComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    routing,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyBlgTXLMGrg5cUsLJQGqsu0ffrGP83Psjg'
     }),
@@ -59,9 +62,12 @@ export const firebaseConfig = {
   ],
   providers: [
     HouseService,
-    AUTH_PROVIDERS
+    AUTH_PROVIDERS,
+    appRoutingProviders,
+    Auth
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+export class PizzaPartyAppModule { }
