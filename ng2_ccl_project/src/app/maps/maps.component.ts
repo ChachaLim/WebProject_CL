@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HouseService} from "../house.service";
-import {House} from "../House";
 import {Router} from "@angular/router";
 import {FirebaseListObservable, AngularFire} from "angularfire2";
-
 
 @Component({
   selector: 'app-maps',
@@ -11,25 +8,21 @@ import {FirebaseListObservable, AngularFire} from "angularfire2";
   styleUrls: ['./maps.component.css'],
 })
 export class MapsComponent implements OnInit {
-
-  title: string = 'google maps';
-  houses: House[] = [];
   items: FirebaseListObservable<any[]>;
+
 
   default_lat: number = 37.575970;
   default_lng: number = 126.957694;
 
   constructor(
-    private houseService: HouseService,
     private router : Router,
     private af: AngularFire
   ) {
-  this.items = af.database.list('/');
+  this.items = af.database.list('/houses/');
 }
 
 
 ngOnInit(): void {
-this.houseService.getHouses().then(houses => this.houses = houses);
 }
 
 //마커 클릭 이벤트

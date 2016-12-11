@@ -11,7 +11,7 @@ export class HosterComponent implements OnInit {
   selectedItem: any;
 
   constructor(af: AngularFire) {
-    this.items = af.database.list('/');
+    this.items = af.database.list('/houses/');
     // this.fbGetData();
   }
 

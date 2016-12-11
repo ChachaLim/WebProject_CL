@@ -1,5 +1,21 @@
+<form id="filter">
+  <label>
+    Filter Homes by
+    <select [(ngModel)]="opt" name="filterOpt">
+      <option value="hoster" selected>
+        hoster
+      </option>
+      <option value="place">
+        place
+      </option>
+    </select>
+    <label>: </label>
+  </label>
+  <input name="filterInput" type="text" [(ngModel)]="term">
+</form>
+
 <ul>
-  <li *ngFor="let house of houses | async"
+  <li *ngFor="let house of houses |async| filter:term:opt "
       [routerLink]="['/details', house.$key]"
   >
     {{house.hoster}}의 집
@@ -7,5 +23,3 @@
     /가격 : {{house.price}}
   </li>
 </ul>
-
-

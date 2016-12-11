@@ -9,19 +9,12 @@ import { FilterPipe } from '../filter.pipe';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-  Title : String = "filtering";
   houses: House[] = [];
-  housesfilter2 : House[] = [];
-  inputHouseName: String;
+
   constructor(
     private houseService : HouseService,
   ){}
 
-  onkey(event:any){
-    console.log("test");
-    this.houseService.getFilterHouse(event.target.value).then(housesfilter => this.housesfilter2 = housesfilter);
-
-  }
   ngOnInit() {
       this.houseService.getHouses().then(houses => this.houses = houses);
   }

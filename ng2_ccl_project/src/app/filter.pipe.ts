@@ -25,6 +25,9 @@ export class FilterPipe implements PipeTransform {
         return house.place.toLowerCase().includes(term.toLowerCase());
       })
     }
+    else{
+      return houses;
+    }
 
   }
 

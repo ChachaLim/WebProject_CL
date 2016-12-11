@@ -31,7 +31,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit():void {
     this.route.params
-      .switchMap((params:Params)=>this.af.database.object("/"+params['hoster']))
+      .switchMap((params:Params)=>this.af.database.object("/houses/"+params['hoster']))
       .subscribe(house => this.house = house);
   }
   goBack():void{
