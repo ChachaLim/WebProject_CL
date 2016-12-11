@@ -15,10 +15,13 @@ import { GuestComponent } from './guest/guest.component';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { FilterPipe } from './filter.pipe';
-import {DataService} from "./data.service";
 import {AfApp} from "./af.component";
 import {AngularFireModule} from "angularfire2";
 import { ListComponent } from './list/list.component';
+import { LoginComponent } from './login/login.component';
+//auth0
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
+
 
 //firebase init
 export const firebaseConfig = {
@@ -40,7 +43,8 @@ export const firebaseConfig = {
     GuestComponent,
     FilterPipe,
     AfApp,
-    ListComponent
+    ListComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,10 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),//firebase 연동
     MaterialModule.forRoot()
   ],
-  providers: [HouseService],
+  providers: [
+    HouseService,
+    AUTH_PROVIDERS
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
