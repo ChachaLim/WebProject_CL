@@ -1,8 +1,11 @@
-<h1>{{title}}</h1>
-<nav>
-  <!--<a routerLink="/" routerLinkActive="active">홈</a>-->
-  <button (click)="onClick()">홈페이지</button>
-  <button [routerLink]="['/host']">호스트</button>
-  <button [routerLink]="['/guest']">게스트</button>
-</nav>
-<router-outlet></router-outlet>
+<md-toolbar color="primary">
+
+  <h1 (click)="onClick()">{{title}}</h1>
+  <!--<span class="app-toolbar-filler"></span>-->
+  <button md-button [routerLink]="['/host']">호스트</button>
+  <button md-button [routerLink]="['/guest']">게스트</button>
+
+</md-toolbar>
+<md-card>
+  <router-outlet></router-outlet>
+</md-card>
