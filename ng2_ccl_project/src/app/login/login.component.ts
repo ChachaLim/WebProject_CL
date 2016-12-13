@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFire, AuthProviders } from 'angularfire2';
+import {Router} from "@angular/router";
 
 @Component({
 
@@ -10,9 +11,11 @@ export class LoginComponent {
   isAuth = false;
   authColor = 'warn';
   user = {};
+  title = "airbnb";
 
   constructor(
-    public af: AngularFire
+    public af: AngularFire,
+    private router: Router
   ) {
     this.af.auth.subscribe(
       user => this._changeState(user),
@@ -20,11 +23,18 @@ export class LoginComponent {
     );
   }
 
+  //홈으로 가기
+  onClick():void{
+    this.router.navigate(['']);
+  }
+
+  //로그인
   login(from: string) {
     this.af.auth.login({
       provider: this._getProvider(from)
     });
   }
+  //로그아웃
   logout() {
     this.af.auth.logout();
   }

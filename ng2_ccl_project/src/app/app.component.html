@@ -1,10 +1,5 @@
-<md-toolbar color="primary">
-  <h1 (click)="onClick()">{{title}}</h1>
-  <!--<span class="app-toolbar-filler"></span>-->
-  <button md-button [routerLink]="['/host']">호스트</button>
-  <button md-button [routerLink]="['/guest']">게스트</button>
-</md-toolbar>
 <app-login></app-login>
 <md-card>
   <router-outlet></router-outlet>
 </md-card>
+
