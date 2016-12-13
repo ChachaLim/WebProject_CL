@@ -1,14 +1,14 @@
 <p>호스터 기능</p>
-<ul>
-  <li *ngFor="let item of items | async"
+<md-list>
+  <md-list-item *ngFor="let item of items | async"
       (click)="onSelect(item)"
   >
     {{item.hoster}}의 {{item.name}}
     <!--{{item.$value}}-->
     <button (click)="delete(item.$key)">x</button>
 
-  </li>
-</ul>
+  </md-list-item>
+</md-list>
 <div *ngIf="selectedItem">
   <label>주택 업데이트</label><br>
   <label>집 이름</label><input type="text" [(ngModel)]="selectedItem.name"><br>
@@ -17,7 +17,7 @@
   <label>가격</label><input type="text" [(ngModel)]="selectedItem.price"><br>
   <label>lat</label><input type="text" [(ngModel)]="selectedItem.lat"><br>
   <label>lng</label><input type="text" [(ngModel)]="selectedItem.lng">
-  <button (click)="update(selectedItem.$key,
+  <button          (click)="update(selectedItem.$key,
                              selectedItem.name,
                              selectedItem.hoster,
                              selectedItem.lat,

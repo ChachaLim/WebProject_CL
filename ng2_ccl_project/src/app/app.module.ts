@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from "@angular/http";
 import {AgmCoreModule} from "angular2-google-maps/core";
-import {AngularFireModule} from "angularfire2";
+import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
 import 'hammerjs';
 
 import { FilterPipe } from './filter.pipe';
@@ -21,11 +21,15 @@ import { LoginComponent } from './login/login.component';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
+import { MdListModule } from '@angular2-material/list';
+import { MdIconModule } from '@angular2-material/icon';
 
 export let MD_MODULES: any = [
   MdToolbarModule,
   MdButtonModule,
-  MdCardModule
+  MdCardModule,
+  MdListModule,
+  MdIconModule
 ];
 
 //firebase init
@@ -46,7 +50,7 @@ export const firebaseConfig = {
     AgmCoreModule.forRoot({ //google-maps api-key
       apiKey:'AIzaSyBlgTXLMGrg5cUsLJQGqsu0ffrGP83Psjg'
     }),
-    AngularFireModule.initializeApp(firebaseConfig),//firebase 연동
+    AngularFireModule.initializeApp(firebaseConfig, {method:AuthMethods.Redirect}),//firebase 연동
     ...MD_MODULES
   ],
   declarations: [
@@ -58,7 +62,8 @@ export const firebaseConfig = {
     GuestComponent,
     FilterPipe,
     ListComponent,
-    HosterComponent
+    HosterComponent,
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

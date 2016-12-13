@@ -1,0 +1,13 @@
+<button md-button (click)="login('google')">
+  Google Auth
+</button>
+<md-card *ngIf="isAuth">
+    <ul>
+      <li>{{user.name}}</li>
+      <li>{{ user.email || '(no email)' }}</li>
+    </ul>
+    <p>You are logged in using <strong>{{ user.provider }}</strong></p>
+    <button md-button (click)="logout()">
+      Logout
+    </button>
+</md-card>
