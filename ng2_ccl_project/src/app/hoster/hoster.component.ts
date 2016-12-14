@@ -9,7 +9,7 @@ import {FirebaseListObservable, AngularFire} from "angularfire2";
 export class HosterComponent implements OnInit {
   items: FirebaseListObservable<any[]>;
   selectedItem: any;
-
+  strorage: FirebaseListObservable<any[]>;
   constructor(af: AngularFire) {
     this.items = af.database.list('/houses/');
     // this.fbGetData();
