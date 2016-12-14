@@ -7,10 +7,13 @@
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['/guest']">guest</a>
     </li>
+    <li class="nav-item" *ngIf="isAuth">
+      <a class="nav-link" [routerLink]="['/관리']">host관리</a>
+    </li>
   </ul>
   <ul class="nav navbar-nav navbar-right" style="margin-right: 20px">
     <li class="nav-item" *ngIf="!isAuth">
-      <a class="nav-link" (click)="login('google')">Google Auth</a>
+      <a class="nav-link" (click)="login('google')">Log in on Gmail</a>
     </li>
     <li class="nav-item" *ngIf="isAuth">
       <span class="navbar-text">{{user.name}}/{{user.email||'(no email)'}}</span>

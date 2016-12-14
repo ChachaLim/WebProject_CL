@@ -15,15 +15,18 @@
 </form>
 
 <div class="row">
-  <md-card *ngFor="let house of houses |async| filter:term:opt"
-           [routerLink]="['/details', house.$key]"
-           class="col-md-6"
-  >
-    <md-card-title>
-      <h4>{{house.hoster}}의 집</h4>
-    </md-card-title>
-    <md-card-content>
-      <p>장소 : {{house.place}} / 가격 : {{house.price}}</p>
-    </md-card-content>
+
+    <md-card *ngFor="let house of houses |async| filter:term:opt"
+             [routerLink]="['/details', house.$key]"
+             class="col-md-6"
+    >
+
+      <md-card-title>
+        <h4>{{house.hoster}}의 집</h4>
+      </md-card-title>
+      <md-card-content>
+        <p>장소 : {{house.place}} / 가격 : {{house.price}}</p>
+      </md-card-content>
   </md-card>
+
 </div>

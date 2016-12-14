@@ -23,6 +23,7 @@ import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
 import { MdListModule } from '@angular2-material/list';
 import { MdIconModule } from '@angular2-material/icon';
+import { HostControllComponent } from './host-controll/host-controll.component';
 
 export let MD_MODULES: any = [
   MdToolbarModule,
@@ -63,7 +64,8 @@ export const firebaseConfig = {
     FilterPipe,
     ListComponent,
     HosterComponent,
-    LoginComponent
+    LoginComponent,
+    HostControllComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
