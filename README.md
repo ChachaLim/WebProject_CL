@@ -18,7 +18,7 @@
 
 >실행
 
->>_$ng serve
+>>$ng serve
 
 ##Developer's info
 >__소프트웨어공학__
@@ -54,5 +54,3 @@ Airbnb는 전세계의 숙박업소의 정보를 디테일하게 담고있어 �
 
 ####Firebase
 ![firebase](https://camo.githubusercontent.com/71219ab5a90a68c77aeb1f39a0c9dff9001fc3e6/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f6d656469612f702f372f3030302f3165312f3264332f303030383130652e706e67)
-
-commitTest
