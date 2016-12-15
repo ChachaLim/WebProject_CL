@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { AngularFire, AuthProviders } from 'angularfire2';
+import {Component} from '@angular/core';
+import {AngularFire, AuthProviders} from 'angularfire2';
 import {Router} from "@angular/router";
+import {$} from "protractor";
 
 @Component({
 
@@ -13,18 +14,17 @@ export class LoginComponent {
   user = {};
   title = "airbnb";
 
-  constructor(
-    public af: AngularFire,
-    private router: Router
-  ) {
+  constructor(public af: AngularFire,
+              private router: Router) {
     this.af.auth.subscribe(
       user => this._changeState(user),
       error => console.trace(error)
     );
   }
 
+
   //홈으로 가기
-  onClick():void{
+  onClick(): void {
     this.router.navigate(['']);
   }
 
@@ -34,13 +34,14 @@ export class LoginComponent {
       provider: this._getProvider(from)
     });
   }
+
   //로그아웃
   logout() {
     this.af.auth.logout();
   }
 
   private _changeState(user: any = null) {
-    if(user) {
+    if (user) {
       this.isAuth = true;
       this.authColor = 'primary';
       this.user = this._getUserInfo(user)
@@ -53,7 +54,7 @@ export class LoginComponent {
   }
 
   private _getUserInfo(user: any): any {
-    if(!user) {
+    if (!user) {
       return {};
     }
     let data = user.auth.providerData[0];
@@ -66,8 +67,9 @@ export class LoginComponent {
   }
 
   private _getProvider(from: string) {
-    switch(from){
-      case 'google': return AuthProviders.Google;
+    switch (from) {
+      case 'google':
+        return AuthProviders.Google;
     }
   }
 }

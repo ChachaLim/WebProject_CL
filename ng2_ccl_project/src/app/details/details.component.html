@@ -1,6 +1,6 @@
-<div *ngIf="house">
+<div *ngIf="house" class="center1">
   <!--<button (click)="onClick(house.imgpath)">click!</button>-->
-  <img [src]="house.imgpath" style="height: 200px">
+  <img [src]="house.imgpath" ><!--style="height: 200px"-->
   <p>{{image}}</p>
   <h2>{{house.hoster}}의 집 details!</h2>
   <p>위치 : {{house.place}}</p>
@@ -8,5 +8,12 @@
   <p>
     위도/경도 : {{house.lat}}/{{house.lng}}
   </p>
-  <button (click)="goBack()">뒤로</button>
+
+  <sebm-google-map [latitude]="house.lat" [longitude]="house.lng" [zoom]="9">
+    <sebm-google-map-marker [latitude]="house.lat"
+                            [longitude]="house.lng"
+                            [title]="house.name"
+    ></sebm-google-map-marker>
+  </sebm-google-map>
+  <button class="btn btn-primary" (click)="goBack()">뒤로</button>
 </div>

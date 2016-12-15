@@ -63,7 +63,7 @@ export const firebaseConfig = {
     FilterPipe,
     ListComponent,
     HosterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

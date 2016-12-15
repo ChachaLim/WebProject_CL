@@ -17,9 +17,11 @@
 <div class="row">
   <md-card *ngFor="let house of houses |async| filter:term:opt"
            [routerLink]="['/details', house.$key]"
-           class="col-md-6"
+           class="col-xs-6"
   >
-    <img [src]="house.imgpath" style="height: 200px">
+    <div class="row">
+    <img [src]="house.imgpath" class="col-xs-12 ">
+    </div>
     <md-card-title>
       <h4>{{house.hoster}}의 집</h4>
     </md-card-title>

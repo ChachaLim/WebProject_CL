@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
-
 import 'rxjs/add/operator/switchMap';
-
 import {AngularFire} from "angularfire2";
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-details',
@@ -17,6 +14,8 @@ export class DetailsComponent implements OnInit {
   house;
   path :string;
   image:string;
+  // lat=12;
+  // lng=123;
 
   constructor(
     private route: ActivatedRoute,
