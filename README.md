@@ -18,7 +18,7 @@
 
 >실행
 
->>_$ng serve
+>>$ng serve
 
 ##Developer's info
 >__소프트웨어공학__
