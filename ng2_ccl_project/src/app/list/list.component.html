@@ -18,7 +18,7 @@
 
     <md-card *ngFor="let house of houses |async| filter:term:opt"
              [routerLink]="['/details', house.$key]"
-             class="col-md-6"
+             class="col-md-6" style="cursor:pointer"
     >
 
       <md-card-title>

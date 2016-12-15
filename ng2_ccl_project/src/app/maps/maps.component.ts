@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FirebaseListObservable, AngularFire} from "angularfire2";
+import {LatLngLiteral} from "angular2-google-maps/core";
 
 @Component({
   selector: 'app-maps',
@@ -13,7 +14,6 @@ export class MapsComponent implements OnInit {
 
   default_lat: number = 37.575970;
   default_lng: number = 126.957694;
-
   constructor(
     private router : Router,
     private af: AngularFire

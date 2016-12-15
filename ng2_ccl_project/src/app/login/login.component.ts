@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AngularFire, AuthProviders } from 'angularfire2';
 import {Router} from "@angular/router";
 
@@ -12,7 +12,7 @@ export class LoginComponent {
   authColor = 'warn';
   user = {};
   title = "airbnb";
-
+  @Input() userValue = this.user;
   constructor(
     public af: AngularFire,
     private router: Router

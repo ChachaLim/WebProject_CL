@@ -24,6 +24,8 @@ import { MdCardModule } from '@angular2-material/card';
 import { MdListModule } from '@angular2-material/list';
 import { MdIconModule } from '@angular2-material/icon';
 import { HostControllComponent } from './host-controll/host-controll.component';
+import { TestComponent } from './test/test.component';
+import { Ng2LocationComponent } from './ng2-location/ng2-location.component';
 
 export let MD_MODULES: any = [
   MdToolbarModule,
@@ -65,7 +67,9 @@ export const firebaseConfig = {
     ListComponent,
     HosterComponent,
     LoginComponent,
-    HostControllComponent
+    HostControllComponent,
+    TestComponent,
+    Ng2LocationComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

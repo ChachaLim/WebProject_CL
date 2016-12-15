@@ -1,3 +1,7 @@
 md-card{
   margin-bottom: 10px;
 }
+#keyup
+{
+  cursor: pointer;
+}
