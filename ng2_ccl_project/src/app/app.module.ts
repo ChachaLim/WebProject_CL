@@ -25,7 +25,9 @@ import { MdListModule } from '@angular2-material/list';
 import { MdIconModule } from '@angular2-material/icon';
 import { HostControllComponent } from './host-controll/host-controll.component';
 import { TestComponent } from './test/test.component';
-
+import { GeolocationService } from './geolocation.serveice';
+import { GoogleMapService } from './GoogleMap.service';
+import { FirebaseAuthService } from './firebaseAuth.service';
 
 export let MD_MODULES: any = [
   MdToolbarModule,
@@ -70,7 +72,10 @@ export const firebaseConfig = {
     HostControllComponent,
     TestComponent,
   ],
-  providers: [],
+  providers: [GeolocationService,
+    GoogleMapService,
+    FirebaseAuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

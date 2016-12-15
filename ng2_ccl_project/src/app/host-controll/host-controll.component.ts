@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FirebaseListObservable, AngularFire} from "angularfire2";
-import {LoginComponent} from '../login/login.component';
-
+import {GoogleMapService} from "../GoogleMap.service";
+import {FirebaseAuthService} from "../firebaseAuth.service";
 @Component({
   selector: 'app-host-controll',
   templateUrl: './host-controll.component.html',
@@ -11,16 +11,16 @@ export class HostControllComponent implements OnInit {
   items:FirebaseListObservable<any[]>;
   selectedItem: any;
   filteredItems;
-  constructor(af: AngularFire) {
+  location = {};
+  user;
+  userName:string;
+  constructor(af: AngularFire, private gms : GoogleMapService, private auth: FirebaseAuthService) {
     this.items = af.database.list('houses');
-    this.filteredItems = af.database.list('houses',{query:{orderByChild:'hoster', equalTo: "임종식" }});
-
+    this.user = auth.user;
+    this.userName = this.user.name;
+    this.filteredItems = af.database.list('houses',{query:{orderByChild:'hoster', equalTo: this.userName }});
   }
 
-  // filter(item : any): boolean{
-  //   if(item.hoster=== "임종식") return true;
-  //   return false;
-  // }
 
   onSelect(item: any): void {
     this.selectedItem = item;
@@ -37,9 +37,14 @@ export class HostControllComponent implements OnInit {
   update(key, newName, newHoster, newLat, newLng, newPlace, newPrice){
     this.items.update(key, {name:newName, hoster:newHoster, lat:Number(newLat), lng:Number(newLng), place: newPlace, price: newPrice});
   }
-
+  geoCode(address){
+    this.gms.convertAddressToCooredinate(address).subscribe((res)=>{
+      this.location = res.results[0].geometry.location;
+      console.log(this.location);
+    });
+  }
   ngOnInit() {
-    //this.filterItems = this.af.database.list("/houses/",{query: {orderByChild : "hoster", equalTo:this.hoster}})
+
   }
 
 

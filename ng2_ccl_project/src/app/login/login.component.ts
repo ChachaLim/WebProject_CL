@@ -12,6 +12,11 @@ export class LoginComponent {
   authColor = 'warn';
   user = {};
   title = "airbnb";
+
+  getUserInfo(){
+    return this.user;
+  }
+
   @Input() userValue = this.user;
   constructor(
     public af: AngularFire,
@@ -22,6 +27,7 @@ export class LoginComponent {
       error => console.trace(error)
     );
   }
+
 
   //홈으로 가기
   onClick():void{
@@ -70,4 +76,5 @@ export class LoginComponent {
       case 'google': return AuthProviders.Google;
     }
   }
+
 }

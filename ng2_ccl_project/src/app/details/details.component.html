@@ -17,13 +17,18 @@
 <!--<div *ngFor="let a of house">-->
   <!--<p>{{a.$value}}</p>-->
 <!--</div>-->
-
-<div *ngIf="house">
-  <h2>{{house.hoster}}의 집 details!</h2>
-  <p>위치 : {{house.place}}</p>
-  <p>가격 : {{house.price}}</p>
-  <p>
-    위도/경도 : {{house.lat}}/{{house.lng}}
-  </p>
-  <button (click)="goBack()">뒤로</button>
+<div class="row">
+  <div *ngIf="house" class="col-xs-6 col-md-6">
+    <h2>{{house.hoster}}의 집 details!</h2>
+    <p>위치 : {{house.place}}</p>
+    <p>가격 : {{house.price}}</p>
+    <p>
+      위도/경도 : {{house.lat}}/{{house.lng}}
+    </p>
+    <button (click)="goBack()">뒤로</button>
+    <button (click)="reservation()">예약</button>
+  </div>
+  <div class="col-xs-6 col-md-6">
+    <app-maps></app-maps>
+  </div>
 </div>
