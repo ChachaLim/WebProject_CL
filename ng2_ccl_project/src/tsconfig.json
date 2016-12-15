@@ -19,12 +19,8 @@
     ],
     "types": [
       "node",
-      "firebase",
+      "protractor",
       "hammerjs"
-    ],
-    "typeroots": [
-      // add path to @types
-      "../node_modules/@types"
     ]
   }
 }

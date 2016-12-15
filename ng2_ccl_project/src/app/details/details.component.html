@@ -1,34 +1,20 @@
-<!--<div *ngIf="house |async">-->
-  <!--<h2>{{house.hoster}}의 집 details!</h2>-->
+<div *ngIf="house" class="center1">
+  <!--<button (click)="onClick(house.imgpath)">click!</button>-->
+  <img [src]="house.imgpath" ><!--style="height: 200px"-->
+  <p>{{image}}</p>
+  <h2>{{house.hoster}}의 집 details!</h2>
+  <p>위치 : {{house.place}}</p>
+  <p>가격 : {{house.price}}</p>
+  <p>
+    위도/경도 : {{house.lat}}/{{house.lng}}
+  </p>
 
-  <!--<div>-->
-  <!--<p>위치 : {{house.place}}</p>-->
-  <!--<p>가격 : {{house.price}}</p>-->
-  <!--</div>-->
-
-  <!--&lt;!&ndash;<p>{{house.hoster}}의 집 정보 수정</p>&ndash;&gt;-->
-  <!--&lt;!&ndash;&lt;!&ndash; two way data binding &ndash;&gt;&ndash;&gt;-->
-  <!--&lt;!&ndash;<label>가격 </label><input type="text" [(ngModel)]="house.price"><br>&ndash;&gt;-->
-  <!--&lt;!&ndash;<label>위치 </label><input type="text" [(ngModel)]="house.place"><br>&ndash;&gt;-->
-  <!--&lt;!&ndash;<label>위도 </label><input type="text" [(ngModel)]="house.lat"><br>&ndash;&gt;-->
-  <!--&lt;!&ndash;<label>경도 </label><input type="text" [(ngModel)]="house.lng">&ndash;&gt;-->
-  <!--<button (click)="goBack()">뒤로</button>-->
-<!--</div>-->
-<!--<div *ngFor="let a of house">-->
-  <!--<p>{{a.$value}}</p>-->
-<!--</div>-->
-<div class="row">
-  <div *ngIf="house" class="col-xs-6 col-md-6">
-    <h2>{{house.hoster}}의 집 details!</h2>
-    <p>위치 : {{house.place}}</p>
-    <p>가격 : {{house.price}}</p>
-    <p>
-      위도/경도 : {{house.lat}}/{{house.lng}}
-    </p>
-    <button (click)="goBack()">뒤로</button>
-    <button (click)="reservation()">예약</button>
-  </div>
-  <div class="col-xs-6 col-md-6">
-    <app-maps></app-maps>
-  </div>
+  <sebm-google-map [latitude]="house.lat" [longitude]="house.lng" [zoom]="9">
+    <sebm-google-map-marker [latitude]="house.lat"
+                            [longitude]="house.lng"
+                            [title]="house.name"
+    ></sebm-google-map-marker>
+  </sebm-google-map>
+  <button class="btn btn-primary" (click)="goBack()">뒤로</button>
+  <button class="btn btn-primary" (click)="reservation()">예약</button>
 </div>

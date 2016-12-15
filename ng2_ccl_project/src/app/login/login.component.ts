@@ -3,7 +3,6 @@ import { AngularFire, AuthProviders } from 'angularfire2';
 import {Router} from "@angular/router";
 
 @Component({
-
   selector: 'app-login',
   templateUrl: 'login.component.html'
 })
@@ -27,7 +26,6 @@ export class LoginComponent {
       error => console.trace(error)
     );
   }
-
 
   //홈으로 가기
   onClick():void{
@@ -76,5 +74,4 @@ export class LoginComponent {
       case 'google': return AuthProviders.Google;
     }
   }
-
 }

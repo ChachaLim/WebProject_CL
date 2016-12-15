@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from "@angular/http";
 import {AgmCoreModule} from "angular2-google-maps/core";
-import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
+import {AngularFireModule, AuthMethods} from "angularfire2";
 import 'hammerjs';
 
 import { FilterPipe } from './filter.pipe';
@@ -25,7 +25,6 @@ import { MdListModule } from '@angular2-material/list';
 import { MdIconModule } from '@angular2-material/icon';
 import { HostControllComponent } from './host-controll/host-controll.component';
 import { TestComponent } from './test/test.component';
-import { GeolocationService } from './geolocation.serveice';
 import { GoogleMapService } from './GoogleMap.service';
 import { FirebaseAuthService } from './firebaseAuth.service';
 
@@ -39,12 +38,12 @@ export let MD_MODULES: any = [
 
 //firebase init
 export const firebaseConfig = {
-  apiKey: "AIzaSyCjR8vVve3AumLqQa618LpBkNAhIC8-6v8",
-  authDomain: "ang2-912fa.firebaseapp.com",
-  databaseURL: "https://ang2-912fa.firebaseio.com",
-  storageBucket: "ang2-912fa.appspot.com",
-  messagingSenderId: "517909678615"
-};
+  apiKey: "AIzaSyDAdt-zXuFmCVDqcx2N-vcVOIiijNhj2cA",
+  authDomain: "angular2-322c9.firebaseapp.com",
+  databaseURL: "https://angular2-322c9.firebaseio.com",
+  storageBucket: "angular2-322c9.appspot.com",
+  messagingSenderId: "888374240508"
+}
 
 @NgModule({
   imports: [
@@ -72,7 +71,7 @@ export const firebaseConfig = {
     HostControllComponent,
     TestComponent,
   ],
-  providers: [GeolocationService,
+  providers: [
     GoogleMapService,
     FirebaseAuthService
   ],

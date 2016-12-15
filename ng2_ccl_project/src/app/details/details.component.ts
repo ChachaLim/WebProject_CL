@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
-
 import {AngularFire} from "angularfire2";
 
 @Component({
@@ -13,6 +12,9 @@ import {AngularFire} from "angularfire2";
 export class DetailsComponent implements OnInit {
   title:"details";
   house;
+  path :string;
+  image:string;
+
   //booked = this.house.hoster;
   constructor(
     private route: ActivatedRoute,

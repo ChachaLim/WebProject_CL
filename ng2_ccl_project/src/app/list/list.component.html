@@ -2,12 +2,12 @@
   <label>
     hoster/place 선택
     <select [(ngModel)]="opt" name="filterOpt">
-    <option value="hoster" selected>
-      hoster
-    </option>
-    <option value="place">
-      place
-    </option>
+      <option value="hoster" selected>
+        hoster
+      </option>
+      <option value="place">
+        place
+      </option>
     </select>
     <label>: </label>
   </label>
@@ -15,18 +15,18 @@
 </form>
 
 <div class="row">
-
-    <md-card *ngFor="let house of houses |async| filter:term:opt"
-             [routerLink]="['/details', house.$key]"
-             class="col-md-6" style="cursor:pointer"
-    >
-
-      <md-card-title>
-        <h4>{{house.hoster}}의 집</h4>
-      </md-card-title>
-      <md-card-content>
-        <p>장소 : {{house.place}} / 가격 : {{house.price}}</p>
-      </md-card-content>
+  <md-card *ngFor="let house of houses |async| filter:term:opt"
+           [routerLink]="['/details', house.$key]"
+           class="col-xs-6" style="cursor:pointer"
+  >
+    <div class="row">
+    <img [src]="house.imgpath" class="col-xs-12 ">
+    </div>
+    <md-card-title>
+      <h4>{{house.hoster}}의 집</h4>
+    </md-card-title>
+    <md-card-content>
+      <p>장소 : {{house.place}} / 가격 : {{house.price}}</p>
+    </md-card-content>
   </md-card>
-
 </div>
