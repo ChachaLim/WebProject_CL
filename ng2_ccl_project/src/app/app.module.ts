@@ -26,12 +26,6 @@ import { MdIconModule } from '@angular2-material/icon';
 import { HostControllComponent } from './host-controll/host-controll.component';
 import { TestComponent } from './test/test.component';
 
-//geotest
-import {EmitterService} from "./ng2-location/browser-location";
-import {nglocationService} from "./ng2-location/browser-location-service";
-import { GeoComponent } from './geo/geo.component';
-
-
 
 export let MD_MODULES: any = [
   MdToolbarModule,
@@ -75,12 +69,8 @@ export const firebaseConfig = {
     LoginComponent,
     HostControllComponent,
     TestComponent,
-    GeoComponent,
   ],
-  providers: [
-    EmitterService,
-    nglocationService,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
