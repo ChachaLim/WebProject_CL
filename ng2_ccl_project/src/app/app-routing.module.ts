@@ -10,9 +10,9 @@ import {HostControllComponent} from "./host-controll/host-controll.component";
 const appRoutes: Routes = [
   {path: '',        component: HomeComponent},
   {path: 'details/:hoster', component: DetailsComponent},
-  {path: 'host', component: HostComponent},
+  {path: 'admin', component: HostComponent},
   {path: 'guest', component: GuestComponent},
-  {path: 'hostControll', component: HostControllComponent}
+  {path: 'my_host_page', component: HostControllComponent}
 ];
 
 @NgModule({

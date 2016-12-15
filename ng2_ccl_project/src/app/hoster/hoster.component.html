@@ -35,30 +35,31 @@
   <div class="row">
     <div class="form-group col-xs-6">
       <label>location</label>
-      <input type="text" class="form-control" [(ngModel)]="selectedItem.place">
+      <input type="text" class="form-control" [(ngModel)]="selectedItem.place" (blur)="geoCode(selectedItem.place)">
     </div>
     <div class="form-group col-xs-6">
       <label>price</label>
-      <input type="text" class="form-control" [(ngModel)]="selectedItem.price">
+      <input type="text" class="form-control" [(ngModel)]="selectedItem.price" (click)="onKey()">
     </div>
   </div>
 
   <div class="row">
     <div class="form-group col-xs-6">
       <label>latitude</label>
-      <input type="number" class="form-control" [(ngModel)]="selectedItem.lat">
+      <input type="number" class="form-control" [(ngModel)]="location.lat">
     </div>
     <div class="form-group col-xs-6">
       <label>longitude</label>
-      <input type="number" class="form-control" [(ngModel)]="selectedItem.lng">
+      <input type="number" class="form-control" [(ngModel)]="location.lng">
     </div>
   </div>
 
+  <input type="file" (change)="onChange($event)">
   <button class="btn btn-default" (click)="update(selectedItem.$key,
                           selectedItem.name,
                           selectedItem.hoster,
-                          selectedItem.lat,
-                          selectedItem.lng,
+                          location.lat,
+                          location.lng,
                           selectedItem.place,
                           selectedItem.price)">Update
   </button>
@@ -79,22 +80,22 @@
 </div>
 <div class="row">
   <div class="form-group col-xs-6">
-    <input type="text" class="form-control" [(ngModel)]="place" placeholder="place">
+    <input type="text" class="form-control" [(ngModel)]="place" placeholder="place" (blur)="geoCode(place)">
   </div>
   <div class="form-group col-xs-6">
-    <input type="text" class="form-control" [(ngModel)]="price" placeholder="price" (keypress)="onKey()">
+    <input type="text" class="form-control" [(ngModel)]="price" placeholder="price" (keypress)="onKey()" >
   </div>
 </div>
 <div class="row">
   <div class="form-group col-xs-6">
-    <input type="text" class="form-control" [(ngModel)]="lat" placeholder="latitude">
+    <input type="text" class="form-control" [(ngModel)]="location.lat" placeholder="latitude">
   </div>
   <div class="form-group col-xs-6">
-    <input type="text" class="form-control" [(ngModel)]="lng" placeholder="lngitude">
+    <input type="text" class="form-control" [(ngModel)]="location.lng" placeholder="lngitude">
   </div>
 </div>
 <input type="file" (change)="onChange($event)">
-<button class="btn btn-default" (click)="newHouse(name, hoster, lat, lng, place, price)">ADD</button>
+<button class="btn btn-default" (click)="newHouse(name, hoster, location.lat, location.lng, place, price)">ADD</button>
 
 
 <app-maps></app-maps>

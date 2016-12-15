@@ -1,7 +1,28 @@
+
 #ChachaLim project
+
+##프로젝트 설치 및 사용 방법
+>nodeJS 설치
+
+>>http://nodejs.org/
+
+>angular cli 설치
+
+>>$npm install -g angular-cli
+
+>디렉토리 이동 및 패키지 설치
+
+>>$cd ng2_ccl_project
+
+>>$npm install
+
+>실행
+
+>>_$ng serve
 
 ##Developer's info
 >__소프트웨어공학__
+
 
 >>_20121884 차영훈_ cyh0123q
 
