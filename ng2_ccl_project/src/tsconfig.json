@@ -19,6 +19,7 @@
     ],
     "types": [
       "node",
+      "firebase",
       "hammerjs"
     ],
     "typeroots": [
@@ -26,5 +27,5 @@
       "../node_modules/@types"
     ]
   }
-  }
 }
+

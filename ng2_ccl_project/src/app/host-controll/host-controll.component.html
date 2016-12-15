@@ -1,0 +1,95 @@
+<table class="table">
+  <tr>
+    <th class="active">hoster</th>
+    <th class="active">house name</th>
+    <th class="active">price</th>
+    <th class="active">location</th>
+    <th class="active">latitude</th>
+    <th class="active">lngitude</th>
+  </tr>
+  <tr *ngFor="let item of filteredItems | async"
+      (click)="onSelect(item)">
+
+    <td>{{item.hoster}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.place}}</td>
+    <td>{{item.lat}}</td>
+    <td>{{item.lng}}</td>
+  </tr>
+</table>
+
+<div *ngIf="selectedItem">
+  <label>주택 업데이트</label><br>
+  <div class="row">
+    <div class="form-group col-xs-6">
+      <label>house name</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedItem.name">
+    </div>
+    <div class="form-group col-xs-6">
+      <label>hoster</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedItem.hoster">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-xs-6">
+      <label>location</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedItem.place" (blur)="geoCode(selectedItem.place)">
+    </div>
+    <div class="form-group col-xs-6">
+      <label>price</label>
+      <input type="text" class="form-control" [(ngModel)]="selectedItem.price">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-xs-6">
+      <label>latitude</label>
+      <input type="number" class="form-control" [(ngModel)]="location.lat">
+    </div>
+    <div class="form-group col-xs-6">
+      <label>longitude</label>
+      <input type="number" class="form-control" [(ngModel)]="location.lng">
+    </div>
+  </div>
+
+  <button class="btn btn-default" (click)="update(selectedItem.$key,
+                          selectedItem.name,
+                          selectedItem.hoster,
+                          location.lat,
+                          location.lng,
+                          selectedItem.place,
+                          selectedItem.price)">Update
+  </button>
+  <button type="button" class="btn btn-danger" (click)="delete(selectedItem.$key)">Delete</button>
+</div>
+<br>
+<label>주택 추가</label><br>
+<div class="row">
+  <div class="form-group col-xs-6">
+    <input type="text" class="form-control" placeholder="houseName" [(ngModel)]="name">
+  </div>
+  <div class="form-group col-xs-6">
+    <input type="text" class="form-control" [(ngModel)]="userName" placeholder="hoster">
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-xs-6">
+    <input type="text" class="form-control" [(ngModel)]="place" placeholder="place" (blur)="geoCode(place)">
+  </div>
+  <div class="form-group col-xs-6">
+    <input type="text" class="form-control" [(ngModel)]="price" placeholder="price">
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-xs-6">
+    <input type="text" class="form-control" [(ngModel)]="location.lat" placeholder="latitude">
+  </div>
+  <div class="form-group col-xs-6">
+    <input type="text" class="form-control" [(ngModel)]="location.lng" placeholder="longitude">
+  </div>
+</div>
+<button class="btn btn-default" (click)="newHouse(name, userName, location.lat, location.lng, place, price)">ADD</button>
+<div>현재 위도: {{location.latitude}}  경도: {{location.longitude}}</div>
+

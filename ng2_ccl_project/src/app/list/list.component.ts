@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {House} from "../House";
-import {HouseService} from "../house.service";
+import {FirebaseListObservable, AngularFire} from "angularfire2";
 
 @Component({
   selector: 'app-list',
@@ -8,12 +7,13 @@ import {HouseService} from "../house.service";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  houses: House[] = [];
-  constructor(
-    private houseService: HouseService,
-  ) {}
+
+  houses: FirebaseListObservable<any[]>;
+  constructor(private af: AngularFire){
+    this.houses = af.database.list('/houses/');
+  }
 
   ngOnInit(): void {
-    this.houseService.getHouses().then(houses => this.houses = houses);
   }
+
 }

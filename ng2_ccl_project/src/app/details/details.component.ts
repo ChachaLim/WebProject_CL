@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
-
-import {House} from "../House";
-import {HouseService} from "../house.service";
 import 'rxjs/add/operator/switchMap';
+
+import {AngularFire} from "angularfire2";
 
 @Component({
   selector: 'app-details',
@@ -12,24 +11,28 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-
   title:"details";
-
-  house: House;
-
+  house;
+  //booked = this.house.hoster;
   constructor(
-    private houseService: HouseService,
     private route: ActivatedRoute,
-    private location: Location
-  ) { }
+    private location: Location,
+    private af: AngularFire
+  ) {}
 
   ngOnInit():void {
     this.route.params
-      .switchMap((params:Params)=>this.houseService.getHouse(params['hoster']))
+      .switchMap((params:Params)=>this.af.database.object("/houses/"+params['hoster']))
       .subscribe(house => this.house = house);
   }
   goBack():void{
     this.location.back();
+  }
+  reservation():void{
+
+  }
+  update(){
+    // this.items.update(key, {booked: });
   }
 
 }
