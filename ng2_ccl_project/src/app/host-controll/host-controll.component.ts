@@ -28,14 +28,14 @@ export class HostControllComponent implements OnInit {
   }
 
   newHouse(newName, newHoster, newLat, newLng, newPlace, newPrice): void {
-    this.items.push({name: newName, hoster: newHoster, lat: Number(newLat), lng: Number(newLng), place: newPlace, price: newPrice});
+    this.items.push({name: newName, hoster: newHoster, lat: Number(newLat), lng: Number(newLng), place: newPlace, price: newPrice, booked: false});
   }
 
   delete(key) {
     this.items.remove(key);
   }
   update(key, newName, newHoster, newLat, newLng, newPlace, newPrice){
-    this.items.update(key, {name:newName, hoster:newHoster, lat:Number(newLat), lng:Number(newLng), place: newPlace, price: newPrice});
+    this.items.update(key, {name:newName, hoster:newHoster, lat:Number(newLat), lng:Number(newLng), place: newPlace, price: newPrice, booked:false});
   }
   geoCode(address){
     this.gms.convertAddressToCooredinate(address).subscribe((res)=>{

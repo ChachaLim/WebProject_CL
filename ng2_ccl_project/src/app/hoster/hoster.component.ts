@@ -35,7 +35,7 @@ export class HosterComponent implements OnInit {
     // var uploadTask = storageRef2.put(this.fileName);
     alert("done"+this.image);
 
-      this.items.push({name: newName, hoster: newHoster, lat: Number(newLat), lng: Number(newLng), place: newPlace, price: newPrice, imgpath: String(this.image)});
+      this.items.push({name: newName, hoster: newHoster, lat: Number(newLat), lng: Number(newLng), place: newPlace, price: newPrice, imgpath: String(this.image), booked:false});
     /*imgpath: 'houses/'+newHoster+'/'+this.fileName.name*/
   }
   onSelect(item: any): void {
@@ -47,7 +47,7 @@ export class HosterComponent implements OnInit {
   }
   update(key, newName, newHoster, newLat, newLng, newPlace, newPrice){
 
-    this.items.update(key, {name:newName, hoster:newHoster, lat:Number(newLat), lng:Number(newLng), place: newPlace, price: newPrice});
+    this.items.update(key, {name:newName, hoster:newHoster, lat:Number(newLat), lng:Number(newLng), place: newPlace, price: newPrice, booked: false});
   }
   ngOnInit() {
   }

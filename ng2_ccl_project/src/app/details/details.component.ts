@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
-import {AngularFire} from "angularfire2";
+import {FirebaseListObservable, AngularFire} from "angularfire2";
+import { Modal } from 'angular2-modal/plugins/bootstrap';
+import {Overlay} from "angular2-modal";
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-details',
@@ -10,31 +13,50 @@ import {AngularFire} from "angularfire2";
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  title:"details";
+  items:FirebaseListObservable<any[]>;
   house;
   path :string;
   image:string;
+  booked:boolean;
 
-  //booked = this.house.hoster;
+
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private af: AngularFire
-  ) {}
-
-  ngOnInit():void {
+    private af: AngularFire,
+    overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal
+  ) {
+    this.items = af.database.list('houses');
     this.route.params
       .switchMap((params:Params)=>this.af.database.object("/houses/"+params['hoster']))
-      .subscribe(house => this.house = house);
+      .subscribe(
+        house =>
+          this.house = house,
+
+        booked =>
+          this.house.booked = this.booked
+      );
+
+  }
+
+  ngOnInit():void {
+    // this.route.params
+    //   .switchMap((params:Params)=>this.af.database.object("/houses/"+params['hoster']))
+    //   .subscribe(house => this.house = house);
   }
   goBack():void{
     this.location.back();
   }
   reservation():void{
-
+     this.items.update(this.house.$key, {booked: true});
+    alert("예약되었습니다.");
+  }
+  reservationCancel():void{
+    this.items.update(this.house.$key, {booked: false});
+    alert("예약취소되었습니다.");
   }
   update(){
-    // this.items.update(key, {booked: });
+
   }
 
 }
