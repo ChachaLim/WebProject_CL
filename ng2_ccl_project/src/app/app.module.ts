@@ -29,8 +29,8 @@ import { TestComponent } from './test/test.component';
 //geotest
 import {EmitterService} from "./ng2-location/browser-location";
 import {nglocationService} from "./ng2-location/browser-location-service";
-import {Location} from "./ng2-location/location-interface";
-import { SeedAppComponent } from './seed-app/seed-app.component';
+import { GeoComponent } from './geo/geo.component';
+
 
 
 export let MD_MODULES: any = [
@@ -48,7 +48,7 @@ export const firebaseConfig = {
   databaseURL: "https://ang2-912fa.firebaseio.com",
   storageBucket: "ang2-912fa.appspot.com",
   messagingSenderId: "517909678615"
-}
+};
 
 @NgModule({
   imports: [
@@ -75,7 +75,7 @@ export const firebaseConfig = {
     LoginComponent,
     HostControllComponent,
     TestComponent,
-    SeedAppComponent,
+    GeoComponent,
   ],
   providers: [
     EmitterService,

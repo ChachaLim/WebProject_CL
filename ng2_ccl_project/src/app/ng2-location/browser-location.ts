@@ -62,14 +62,6 @@ export class EmitterService {
   providers: [nglocationService],
   directives:[]
 })
-
-/**
- *
- * @class ngSelectLocation
- * @implements OnInit
- *
- **/
-
 export class ngSelectLocation implements OnInit {
   /**
       * The selectedCity property is used to show the current city name.
