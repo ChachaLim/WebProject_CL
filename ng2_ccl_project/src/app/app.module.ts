@@ -17,7 +17,6 @@ import { HosterComponent } from './hoster/hoster.component';
 import { HostComponent } from './host/host.component';
 import { GuestComponent } from './guest/guest.component';
 import { LoginComponent } from './login/login.component';
-import {StorageComponent} from "./storage.component";
 
 import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdButtonModule } from '@angular2-material/button';
@@ -64,8 +63,7 @@ export const firebaseConfig = {
     FilterPipe,
     ListComponent,
     HosterComponent,
-    LoginComponent,
-    StorageComponent
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
