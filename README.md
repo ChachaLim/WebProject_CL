@@ -2,14 +2,22 @@
 #ChachaLim project
 
 ##프로젝트 설치 및 사용 방법
->__nodeJS 설치
->>_http://nodejs.org/
->__angular cli 설치
->>_$npm install -g angular-cli
->__디렉토리 이동 및 패키지 설치
->>_$cd ng2_ccl_project
->>_$npm install
->__실행
+>nodeJS 설치
+
+>>http://nodejs.org/
+
+>angular cli 설치
+
+>>$npm install -g angular-cli
+
+>디렉토리 이동 및 패키지 설치
+
+>>$cd ng2_ccl_project
+
+>>$npm install
+
+>실행
+
 >>_$ng serve
 
 ##Developer's info
