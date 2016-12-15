@@ -32,8 +32,6 @@ export class HostControllComponent implements OnInit {
   //파일 업로드
   onChange(event) {
     this.fileName = event.target.files[0];
-    const storageRef2 = firebase.storage().ref('houses/' + this.hoster + '/' + this.fileName.name);
-    storageRef2.put(this.fileName);
   }
 
 
@@ -48,6 +46,10 @@ export class HostControllComponent implements OnInit {
   }
 
   newHouse(newName, newHoster, newLat, newLng, newPlace, newPrice): void {
+    const storageRef2 = firebase.storage();
+    const ref = storageRef2.ref('houses/' + this.hoster + '/' + this.fileName.name);
+    ref.put(this.fileName);
+
     alert("Image URL : " + this.image);
     this.items.push({
       name: newName,
