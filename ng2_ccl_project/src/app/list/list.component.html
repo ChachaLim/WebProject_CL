@@ -23,10 +23,13 @@
     <img [src]="house.imgpath" class="col-xs-12 ">
     </div>
     <md-card-title>
-      <h4>{{house.hoster}}의 집</h4>
+      <h4>{{house.hoster}}의 집  <i class="material-icons" *ngIf="house.booked">lock</i></h4>
     </md-card-title>
     <md-card-content>
       <p>장소 : {{house.place}} / 가격 : {{house.price}}</p>
+      <p *ngIf="house.booked">예약됨</p>
+      <!--<p *ngIf="!house.booked"><i class="material-icons">lock</i></p>-->
+
     </md-card-content>
   </md-card>
 </div>

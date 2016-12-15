@@ -17,8 +17,8 @@
   </sebm-google-map>
   <div class="row">
     <button class="btn btn-primary" (click)="goBack()">뒤로</button>
-    <button class="btn btn-primary" (click)="reservation()" *ngIf="!booked">예약</button>
-    <button class="btn btn-primary" (click)="reservationCancel()" *ngIf="booked">예약취소</button>
+    <button class="btn btn-primary" (click)="reservation()" *ngIf="!house.booked">예약</button>
+    <button class="btn btn-primary" (click)="reservationCancel()" *ngIf="house.booked">예약취소</button>
   </div>
 </div>
 
