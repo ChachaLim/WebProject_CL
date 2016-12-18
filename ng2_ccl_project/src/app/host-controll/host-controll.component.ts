@@ -24,9 +24,12 @@ export class HostControllComponent implements OnInit {
 
   constructor(af: AngularFire, private gms: GoogleMapService, private auth: FirebaseAuthService) {
     this.items = af.database.list('houses');
-    this.user = auth.user;
+    this.user = this.auth.user;
     this.hoster = this.user.name;
+
     this.filteredItems = af.database.list('houses', {query: {orderByChild: 'hoster', equalTo: this.hoster}});
+  }
+  ngOnInit() {
   }
 
   //파일 업로드
@@ -88,9 +91,7 @@ export class HostControllComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
 
-  }
 
 
 }

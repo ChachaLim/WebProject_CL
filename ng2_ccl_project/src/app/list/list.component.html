@@ -20,13 +20,14 @@
            class="col-xs-6" style="cursor:pointer"
   >
     <div class="row">
-    <img *ngIf="house.imgpath && (house.imgpath!=='undefined')" [src]="house.imgpath" class="col-xs-12 ">
-      <img *ngIf="!house.imgpath || (house.imgpath==='undefined')" [src]="'https://firebasestorage.googleapis.com/v0/b/angular2-322c9.appspot.com/o/houses%2Fnon-house.png?alt=media&token=44093f11-7f9f-4360-8e62-02dcb99dd8da'" class="col-xs-12 ">
-      <!--<img *ngIf="" [src]="'https://firebasestorage.googleapis.com/v0/b/angular2-322c9.appspot.com/o/houses%2Fnon-house.png?alt=media&token=44093f11-7f9f-4360-8e62-02dcb99dd8da'" class="col-xs-12 ">-->
+      <img *ngIf="house.imgpath && (house.imgpath!=='undefined')" [src]="house.imgpath" class="col-xs-12 ">
+      <img *ngIf="!house.imgpath || (house.imgpath==='undefined')"
+           [src]="'https://firebasestorage.googleapis.com/v0/b/angular2-322c9.appspot.com/o/houses%2Fnon-house.png?alt=media&token=44093f11-7f9f-4360-8e62-02dcb99dd8da'"
+           class="col-xs-12 ">
 
     </div>
     <md-card-title>
-      <h4>{{house.hoster}}의 {{house.name}}  <i class="material-icons" *ngIf="house.booked">lock</i></h4>
+      <h4>{{house.hoster}}의 {{house.name}} <i class="material-icons" *ngIf="house.booked">lock</i></h4>
     </md-card-title>
     <md-card-content>
       <p>장소 : {{house.place}} / 가격 : {{house.price}}</p>

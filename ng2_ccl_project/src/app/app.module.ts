@@ -27,8 +27,6 @@ import { HostControllComponent } from './host-controll/host-controll.component';
 import { TestComponent } from './test/test.component';
 import { GoogleMapService } from './GoogleMap.service';
 import { FirebaseAuthService } from './firebaseAuth.service';
-import { ModalModule } from 'angular2-modal';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 
 export let MD_MODULES: any = [
@@ -54,8 +52,6 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    ModalModule.forRoot(),
-    BootstrapModalModule,
     AgmCoreModule.forRoot({ //google-maps api-key
       apiKey:'AIzaSyBlgTXLMGrg5cUsLJQGqsu0ffrGP83Psjg'
     }),

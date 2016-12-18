@@ -3,8 +3,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import {FirebaseListObservable, AngularFire} from "angularfire2";
-import { Modal } from 'angular2-modal/plugins/bootstrap';
-import {Overlay} from "angular2-modal";
+import {FirebaseAuthService} from "../firebaseAuth.service";
 import * as firebase from 'firebase';
 
 @Component({
@@ -19,12 +18,16 @@ export class DetailsComponent implements OnInit {
   image:string;
   booked:boolean;
 
+  //auth service
+  user;
+  hoster: string;
+
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private af: AngularFire,
-    overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal
+    private auth: FirebaseAuthService
   ) {
     this.items = af.database.list('houses');
     this.route.params
@@ -32,11 +35,11 @@ export class DetailsComponent implements OnInit {
       .subscribe(
         house =>
           this.house = house,
-
-        booked =>
-          this.house.booked = this.booked
       );
 
+    //auth service
+    this.user = auth.user;
+    this.hoster = this.user.name;
   }
 
   ngOnInit():void {
@@ -48,7 +51,7 @@ export class DetailsComponent implements OnInit {
     this.location.back();
   }
   reservation():void{
-     this.items.update(this.house.$key, {booked: true});
+     this.items.update(this.house.$key, {booked: true, resolver:this.hoster});
     alert("예약되었습니다.");
   }
   reservationCancel():void{

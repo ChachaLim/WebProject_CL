@@ -1,8 +1,7 @@
 <div *ngIf="house" class="center1">
   <!--<button (click)="onClick(house.imgpath)">click!</button>-->
   <img [src]="house.imgpath" ><!--style="height: 200px"-->
-  <p>{{image}}</p>
-  <h2>{{house.hoster}}의 집 details!</h2>
+  <h2>{{house.hoster}}의 {{house.name}} details!</h2>
   <p>위치 : {{house.place}}</p>
   <p>가격 : {{house.price}}</p>
   <p>
@@ -18,7 +17,7 @@
   <div class="row">
     <button class="btn btn-primary" (click)="goBack()">뒤로</button>
     <button class="btn btn-primary" (click)="reservation()" *ngIf="!house.booked">예약</button>
-    <button class="btn btn-primary" (click)="reservationCancel()" *ngIf="house.booked">예약취소</button>
+    <button class="btn btn-primary" (click)="reservationCancel()" *ngIf="house.booked&&house.resolver===hoster">예약취소</button>
   </div>
 </div>
 
